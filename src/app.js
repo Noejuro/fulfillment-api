@@ -5,11 +5,13 @@ import pkg from '../package.json'
 import productsRoutes from "./routes/products.routes";
 
 const app = express();
-app.set('port', 3000);
+app.set('port', 4000);
 
 app.set("pkg", pkg)
 
 app.use(morgan('dev'));
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.json({
