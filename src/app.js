@@ -2,8 +2,10 @@ import express from 'express'
 import morgan from 'morgan'
 import pkg from '../package.json'
 
-import productsRoutes from "./routes/products.routes";
 import authRoutes from "./routes/auth.routes";
+import productsRoutes from "./routes/products.routes";
+import warehouseRoutes from './routes/warehouses.routes'
+import storeRoutes from './routes/stores.routes'
 
 const app = express();
 app.set('port', 4000);
@@ -23,8 +25,10 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('/api/products', productsRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productsRoutes);
+app.use('/api/warehouses', warehouseRoutes);
+app.use('/api/stores', storeRoutes);
 
 export default app;
 
