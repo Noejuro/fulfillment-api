@@ -1,14 +1,15 @@
 import { Router } from 'express'
 import * as productsCtrl from '../controllers/products.controller';
+import { verifyToken } from '../middlewares';
 
 const router = Router();
 
-router.post('/create', productsCtrl.createProduct)
+router.post('/create', verifyToken, productsCtrl.createProduct)
 
-router.get('/', productsCtrl.getProducts)
+router.get('/', verifyToken, productsCtrl.getProducts)
 
-router.put('/:productId', productsCtrl.updateProduct)
+router.put('/:productId', verifyToken, productsCtrl.updateProduct)
 
-router.delete('/:productId', productsCtrl.deleteProduct)
+router.delete('/:productId', verifyToken, productsCtrl.deleteProduct)
 
 export default router;
