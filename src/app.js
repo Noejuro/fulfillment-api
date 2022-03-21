@@ -1,6 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import pkg from '../package.json'
+import 'dotenv/config';
 
 import authRoutes from "./routes/auth.routes";
 import productsRoutes from "./routes/products.routes";
